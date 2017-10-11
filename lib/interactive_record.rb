@@ -8,5 +8,6 @@ class InteractiveRecord
   end
 
 
-  def 
+  def self.column_names
+  end
 end

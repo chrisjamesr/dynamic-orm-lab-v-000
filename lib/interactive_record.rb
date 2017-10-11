@@ -35,7 +35,7 @@ class InteractiveRecord
     self.class.column_names.each do |col_name|
       values << "'#{send(col_name)}'" unless send(col_name).nil?
     end
-    values.join(", ")  
+    values.join(", ")
   end
 
   def save
@@ -45,7 +45,7 @@ class InteractiveRecord
     SQL
 
     DB[:conn].execute(sql)
-    @id = DB[:conn].execute("SELECT last_insert_rowid() 
+    @id = DB[:conn].execute("SELECT last_insert_rowid()
     FROM #{table_name_for_insert}")[0][0]
   end
 

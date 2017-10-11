@@ -8,10 +8,6 @@ class InteractiveRecord
     "#{self.to_s.downcase.pluralize}"
   end
 
-  def initialize
-
-  end
-
   def self.column_names
     DB[:conn].results_as_hash = true
     sql = <<-SQL
@@ -25,8 +21,10 @@ class InteractiveRecord
     column_names.compact
   end
 
-
-
+  def table_name_for_insert
+      self.class.table_name
+  end    
+    
 
 
 

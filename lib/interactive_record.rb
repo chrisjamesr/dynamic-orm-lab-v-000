@@ -59,8 +59,8 @@ class InteractiveRecord
 
   def self.find_by(attribute)
     value = attribute.values.first
-    search_value = value.class == Fixnum ? value.to_s : value
-    sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys.first} = #{search_value}"
+    formatted_value = value.class == Integer ? value : "'#{value}'"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys.first} = #{formatted_value}"
     DB[:conn].execute(sql)
   end
 

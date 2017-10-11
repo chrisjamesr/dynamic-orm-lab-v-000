@@ -62,8 +62,9 @@ class InteractiveRecord
       SELECT * FROM #{self.table_name}
       WHERE  ?
     SQL
-    DB[:conn].execute(sql, attribute)
     binding.pry
+    DB[:conn].execute(sql, attribute)
+    
   end
 
 end  #  End of Class

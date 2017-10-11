@@ -62,8 +62,8 @@ class InteractiveRecord
       SELECT * FROM #{self.table_name}
       WHERE  ?
     SQL
-    binding.pry
-    DB[:conn].execute(sql, attribute)
+    attribute.flatten!
+    DB[:conn].execute(sql, attribute[0], attribute[1])
 
   end
 

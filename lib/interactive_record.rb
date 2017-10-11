@@ -62,9 +62,7 @@ class InteractiveRecord
       SELECT * FROM #{self.table_name}
       WHERE ? = ?
     SQL
-    DB[:conn].execute(sql, attribute.to_s, attribute)
-
-
+    DB[:conn].execute(sql, attribute.flatten.first.to_s, attribute.last)
   end
 
 end  #  End of Class

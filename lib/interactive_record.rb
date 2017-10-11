@@ -63,7 +63,7 @@ class InteractiveRecord
       search_value = value.to_s
     else
       search_value = value
-    end  
+    end
     sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys.first} = #{search_value}"
     DB[:conn].execute(sql)
   end

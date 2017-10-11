@@ -62,7 +62,7 @@ class InteractiveRecord
       SELECT * FROM #{self.table_name}
       WHERE  ?
     SQL
-    DB[:conn].execute(sql, )
+    DB[:conn].execute(sql, :attribute.to_s, attribute )
 
   end
 

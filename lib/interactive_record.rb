@@ -62,9 +62,9 @@ class InteractiveRecord
     if value.class != Fixnum
       search_value = value.to_s
     else
-      search_value = value  
+      search_value = value
     end  
-    sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys.first} = #{value}"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys.first} = #{search_value}"
     DB[:conn].execute(sql)
   end
 
